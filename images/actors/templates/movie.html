@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Gallery</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+
+</head>
+<body>
+
+    <!-- HEADER -->
+
+    <div class="header">
+        <h1>Movie Gallery</h1>
+    </div>
+
+    <!-- MOVIES -->
+
+    <div class="container">
+
+        <div class="grid">
+
+            {% for s in data %}
+
+            <div class="card">
+
+                <img src="{{ s.image.url }}" alt="{{ s.name }}">
+
+                <h2>{{ s.name }}</h2>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</body>
+</html>

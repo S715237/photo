@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><a href="{% url 'home' %}">PHOTO GALLERY</a></title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#f4f4f4;
+        }
+
+        /* HEADER */
+
+        .header{
+            background:black;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            background:red;
+            padding:15px;
+            text-align:center;
+        }
+
+        .navbar a{
+            color:white;
+            text-decoration:none;
+            margin:15px;
+            font-size:18px;
+        }
+
+        /* MAIN SECTION */
+
+        .main{
+            text-align:center;
+            margin-top:40px;
+        }
+
+        .main img{
+            width:300px;
+            height:200px;
+            border-radius:10px;
+        }
+
+        .main h2{
+            margin-top:20px;
+        }
+
+        .btn{
+            padding:10px 20px;
+            background:black;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:red;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- HEADER -->
+
+    <div class="header">
+        <h1>My Website</h1>
+    </div>
+    <div class="card">
+                <a href="{% url 'christmas' %}" target="_blank">
+                    <img src="{% static 'IMG/logos.jpg' %}" alt="images/static/IMG/morning.jpg">
+                   
+                </a>
+            </div>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+        <a href="{% url 'home'%}">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main">
+
+        <img src="" alt="Home Image">
+
+        <h2>Welcome to My Home Page</h2>
+
+        <p>This is a simple website design using HTML and CSS.</p>
+
+        <button class="btn">Read More</button>
+
+    </div>
+
+</body>
+</html>

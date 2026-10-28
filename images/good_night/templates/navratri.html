@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Navratri Gallery</title>
+    <style>
+        body{
+            background-color:#fff8dc;
+            text-align:center;
+            font-family:Arial;
+            margin:0;
+            padding:0;
+        }
+
+        /* Navbar */
+        .navbar{
+            background-color:crimson;
+            padding:10px 20px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            box-shadow:0 2px 5px gray;
+        }
+
+        /* Logo */
+        .logo{
+            display:flex;
+            align-items:center;
+            color:white;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .logo img{
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            margin-right:10px;
+        }
+
+        /* Menu */
+        .menu a{
+            color:white;
+            text-decoration:none;
+            margin:0 15px;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        .menu a:hover{
+            color:yellow;
+        }
+
+        h1{
+            color:crimson;
+            margin-top:20px;
+        }
+
+        .gallery{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:20px;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:15px;
+            border-radius:0px 0px 10px 10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        .gallery img{
+            width:300px;
+            height:300px;
+            object-fit:cover;
+            border-radius:30px 30px 0px 30px;
+            display:block;
+            margin-bottom:10px;
+        }
+
+        .download-btn{
+            display:inline-block;
+            padding:10px 20px;
+            background-color:rgb(22, 9, 12);
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+            font-weight:bold;
+        }
+
+        .download-btn:hover{
+            background-color:rgb(141, 216, 13);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+
+        <!-- Left Logo -->
+        <div class="logo">
+            <a href="{% url 'home' %}">
+            <img src="{% static 'image/logo.png' %}" alt="Logo">
+            Photo Gallery 
+            </a>
+        </div>
+
+        <!-- Right Menu -->
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/navratri/">Navratri</a>
+            <a href="/ganesh/">Ganesh Chaturthi</a>
+            <a href="/krishna/">Krishna Janmashtami</a>
+        </div>
+
+    </div>
+
+    <h1>Navratri Images</h1>
+
+    <div class="gallery">
+        {% for i in data %}
+        <div class="card">
+            <img src="{{ i.image.url }}" alt="Navratri Image">
+
+            <a href="{{ i.image.url }}" download class="download-btn">
+                Download
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

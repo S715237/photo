@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Christmas Gallery</title>
+    <style>
+        body{
+            background-color:#f0fff0;
+            text-align:center;
+            font-family:Arial;
+        }
+
+        h1{
+            color:green;
+        }
+
+        .gallery{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:20px;
+        }
+
+        .gallery img{
+            width:300px;
+            height:300px;
+            object-fit:cover;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+            border:3px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Christmas Images 🎄</h1>
+
+    <div class="gallery">
+        {% for i in data %}
+            <img src="{{ i.image.url }}" alt="Christmas Image">
+        {% endfor %}
+    </div>
+
+</body>
+</html>

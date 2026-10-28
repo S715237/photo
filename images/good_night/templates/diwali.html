@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diwali Gallery</title>
+    <link rel="stylesheet" href="{% static 'css/diwali.css' %}">
+    <style>
+        body{
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, orange, red);
+    text-align:center;
+}
+
+/* Heading */
+h1{
+    color:white;
+    padding:20px;
+    text-shadow:2px 2px 5px black;
+}
+
+/* Gallery */
+.gallery{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+/* Card */
+.card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+/* Image */
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* Download Button */
+.download-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 20px;
+    background:green;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.download-btn:hover{
+    background:rgb(230, 234, 230);
+}
+    </style>
+</head>
+<body>
+
+    <h1>🪔 Happy Diwali Gallery 🪔</h1>
+
+    <div class="gallery">
+        {% for i in data %}
+        <div class="card">
+            
+            <!-- Click image to open -->
+            <a href="{{ i.image.url }}" target="_blank">
+                <img src="{{ i.image.url }}" alt="Diwali Image">
+            </a>
+
+            <!-- Download button -->
+            <a href="{{ i.image.url }}" download class="download-btn">
+                Download
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
